@@ -5,17 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>PHP Sign</title>
+    <title>E-Comm</title>
 </head>
-<body onload="fetch_profile()">
+<body onload="auth('fetch_profile')">
+    <nav>
+        <a href="./dashboard.html"><span>Dashboard</span></a>
+        <a href="./orders.html"><span>Orders</span></a>
+        <a href="./products.html"><span>Products</span></a>
+        <a href="./profile.html"><span>Profile</span></a>
+        <a href="./try.html"><span>Trials</span></a>
+    </nav>
     <h1>Profile</h1>
     <button onclick="signout()">SignOut</button>
-    <div style="display: flex;flex-direction: column;width: 20%;">
-        <label for="name">Username : <input type="text" name="name" id="name" placeholder="Name"></label>
-        <label for="name">Contact : <input type="tel" name="contact" id="contact" placeholder="Contact"></label>
-        <label for="name">Email : <input type="email" name="email" id="email" placeholder="Email"></label>
-        <label for="name">Password : <input type="text" name="password" id="password" placeholder="Password"></label>
-        <button type="submit" onclick="update()">Update</button>
+    <div class="profile">
+        <div>
+            <label for="name">Username : </label>
+            <input type="text" name="name" id="name" placeholder="Name">
+        </div>
+        <div>
+            <label for="name">Contact : </label>
+            <input type="tel" name="contact" id="contact" placeholder="Contact">
+        </div>
+        <div>
+            <label for="name">Email : </label>
+            <input type="email" name="email" id="email" placeholder="Email">
+        </div>
+        <div>
+            <label for="name">Password : </label>
+            <input type="text" name="password" id="password" placeholder="Password">
+        </div>
+        <button type="submit" onclick="auth('update')">Update</button>
     </div>
     <script src="./js/jquery.min.js"></script>
     <script src="./js/main.js"></script>

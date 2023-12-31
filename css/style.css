@@ -5,13 +5,37 @@ body{
 }
 a{
     color: whitesmoke;
+    text-decoration: none;
 }
-.content{
+.sign{
     display: flex;
     flex-wrap: wrap;
 }
-.content div{
+.sign div{
     display: flex;
     flex-direction: column;
     margin: 5% 15%;
+}
+.profile{
+    flex-wrap: wrap;
+    width: 20%;
+}
+.profile div{
+    display: flex;
+}
+nav{
+    display: grid;
+    position: fixed;
+    background-color: #181818;
+    width: 15%;
+    height: 50%;
+    border-radius: 10px;
+    right: 0;
+    top: 10%;
+    padding: 5% 0 0 2%;
+}
+#back_dashboard{
+    position: absolute;
+    top: 2%;
+    right: 2%;
 }

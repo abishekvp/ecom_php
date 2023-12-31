@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to String</title>
+</head>
+<body>
+    <input type="file" id="imageInput" accept="image/*">
+    <button onclick="convertImageToString()">Convert to String</button>
+
+    <canvas id="canvas" style="display: none;"></canvas>
+
+    <div id="result_str"></div>
+    <div id="result"></div>
+
+    <script>
+
+
+        function convertImageToString() {
+            var input = document.getElementById('imageInput');
+            var canvas = document.getElementById('canvas');
+            var resultDiv = document.getElementById('result');
+            var resultstr = document.getElementById('result_str');
+
+            var file = input.files[0];
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    var img = new Image();
+                    img.onload = function () {
+                        canvas.width = img.width;
+                        canvas.height = img.height;
+                        var context = canvas.getContext('2d');
+                        context.drawImage(img, 0, 0, img.width, img.height);
+
+                        // Convert image data to a string (Base64)
+                        var imageDataString = canvas.toDataURL('image/png');
+                        resultstr.innerHTML = imageDataString;
+                        resultDiv.innerHTML = 'Image converted to string: <br><img src="' + imageDataString + '" alt="Converted Image">';
+                    };
+
+                    img.src = e.target.result;
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please select an image.');
+            }
+        }
+    </script>
+</body>
+</html>
